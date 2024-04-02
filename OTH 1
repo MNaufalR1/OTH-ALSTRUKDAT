@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definisi struktur node untuk representasi huruf
+struct Node {
+    char alphabet; // Huruf pada node
+    struct Node* link; // Pointer ke node berikutnya
+};
+
+int main() {
+    // Inisialisasi node-node yang telah diberikan
+    struct Node node1 = {'I', NULL};
+    struct Node node2 = {'N', NULL};
+    struct Node node3 = {'F', NULL};
+    struct Node node4 = {'O', NULL};
+    struct Node node5 = {'R', NULL};
+    struct Node node6 = {'M', NULL};
+    struct Node node7 = {'A', NULL};
+    struct Node node8 = {'T', NULL};
+    struct Node node9 = {'I', NULL};
+    struct Node node10 = {'K', NULL};
+    struct Node node11 = {'A', NULL};
+
+    // Membuat link-node sesuai dengan urutan yang diinginkan
+    node1.link = &node2;
+    node2.link = &node3;
+    node3.link = &node4;
+    node4.link = &node5;
+    node5.link = &node6;
+    node6.link = &node7;
+    node7.link = &node8;
+    node8.link = &node9;
+    node9.link = &node10;
+    node10.link = &node11;
+    node11.link = NULL;
+
+    // Akses data menggunakan node 1 sebagai starting point
+    printf("Output: ");
+    struct Node* current = &node1;
+    while (current != NULL) {
+        printf("%c", current->alphabet);
+        current = current->link;
+    }
+    printf("\n");
+
+    return 0;
+}
